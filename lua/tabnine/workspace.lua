@@ -14,7 +14,11 @@ function M.setup()
 		vim.schedule_wrap(function()
 			if #utils.buf_get_clients() > 0 then
 				local root_paths = utils.set(lsp.buf.list_workspace_folders())
-				tabnine_binary:request({ Workspace = { root_paths = root_paths } }, function() end)
+				print(vim.inspect(root_paths))
+				tabnine_binary:request({ Workspace = { root_paths = root_paths } }, function() 
+					print("TabNine Request Error:", err)
+    					print("TabNine Response:", vim.inspect(res))
+				end)
 			end
 		end)
 	)
