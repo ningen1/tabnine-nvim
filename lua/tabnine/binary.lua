@@ -72,6 +72,7 @@ function TabnineBinary:start()
 			"ide-restart-counter=" .. self.restart_counter,
 			"pluginVersion=" .. consts.plugin_version,
 			"--tls_config",
+			"--log-level trace ",
 			"insecure=" .. tostring(config.ignore_certificate_errors),
 		}, optional_args()),
 		stdio = { self.stdin, self.stdout, self.stderr },
